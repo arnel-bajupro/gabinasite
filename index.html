@@ -16,9 +16,27 @@
         header {
             padding: 20px;
         }
+        /* Make the logo match menu image width (up to 600px) */
         header img {
-            max-width: 150px;
+            max-width: 600px;
+            width: 100%;
             height: auto;
+        }
+        /* Centered red text beneath the logo */
+        .header-links {
+            color: red;
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        .header-links span {
+            margin: 0 15px;
+        }
+        /* Tribute text */
+        .tribute-text {
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
         }
         .section {
             padding: 30px 20px;
@@ -43,8 +61,10 @@
             text-align: center;
             margin: 20px auto;
         }
-        .image-container img {
-            max-width: 90%;
+        /* Set farmers market image to match menu images (max 600px) */
+        .image-container img.farmers-market {
+            max-width: 600px;
+            width: 100%;
             height: auto;
             border-radius: 10px;
         }
@@ -54,6 +74,12 @@
             padding: 20px;
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
+        }
+        /* At wider screens, menu items are capped at 600px in width */
+        @media (min-width: 768px) {
+            .menu-item {
+                max-width: 600px;
+            }
         }
         .menu-item img {
             max-width: 100%;
@@ -92,31 +118,50 @@
             border-top: 1px solid white;
         }
         @media (min-width: 768px) {
-            .menu-item {
-                max-width: 600px;
-            }
             .schedule-item {
                 flex: 1 1 45%;
             }
+        }
+        /* ------------------ Added Testimonial Slideshow Styles ------------------ */
+        .testimonial-section {
+            max-width: 800px;
+            margin: 40px auto;
+        }
+        .testimonials {
+            position: relative;
+            min-height: 120px; /* Ensures container has height even if slides are hidden */
+        }
+        .testimonial-slide {
+            display: none;
+            padding: 20px;
+        }
+        .testimonial-slide blockquote {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+        .testimonial-slide cite {
+            font-style: normal;
+            color: #ccc;
         }
     </style>
 </head>
 <body>
 <header>
     <img src="gabina's logo digitized.jpg" alt="Gabina's Cuisine Logo">
+
+    <div class="header-links">
+        <span>Farmer's Markets</br></span>
+        <span>Events</br></span>
+        <span>Catering</span>
+    </div>
+
+    <p class="tribute-text">
+        A tribute to the beloved Mother, Grandmother, Wife, and Friend Gabina.<br><br>
+        Inspired by her excellent culinary skills, Gabina's Cuisine continues to excel in providing great traditional Filipino food that offers culinary delight appreciated by all those who have tasted it.
+    </p>
 </header>
 
-<div class="section">
-    <div class="highlight-text">Visit us at your local Farmers' Markets</div>
-    <p class="description">Experience agriculture and enjoy great Filipino food while you buy local San Diego produce when visiting one of the Certified Farmers’ Markets (CFM) in San Diego County.</p>
-    <p class="description">Farmers’ Markets provide venues for farmers to sell directly to consumers and support small farming operations and small local businesses as well.</p>
-</div>
-
-<div class="separator"></div>
-
-<div class="image-container">
-    <img src="b7a70a_d31cd16341ec41ecb1598ebb830cc5c4~mv2.jpg" alt="Farmer's Market Location">
-</div>
 
 <div class="separator"></div>
 
@@ -135,11 +180,22 @@
     <div class="menu-item">
         <div class="menu-title">Lumpia</div>
         <img src="5 Piece Lumpia.jpg" alt="Lumpia">
-        <p>Deep fried savory snack made of thin crepe pastry skin called "lumpia wrapper" enveloping a mixture of chopped vegetables (carrots, cabbages & celery) with minced pork.</p>
+        <p>Deep fried savory snack made of thin crepe pastry skin called "lumpia wrapper" enveloping a mixture of chopped vegetables (carrots, cabbages &amp; celery) with minced pork.</p>
     </div>
 </div>
 
 <div class="separator"></div>
+
+<div class="section">
+    <div class="highlight-text">Visit us at your local Farmers' Markets</div>
+    <p class="description">Experience agriculture and enjoy great Filipino food while you buy local San Diego produce when visiting one of the Certified Farmers’ Markets (CFM) in San Diego County.</p>
+    <p class="description">Farmers’ Markets provide venues for farmers to sell directly to consumers and support small farming operations and small local businesses as well.</p>
+</div>
+
+<div class="image-container">
+    <img class="farmers-market" src="b7a70a_d31cd16341ec41ecb1598ebb830cc5c4~mv2.jpg" alt="Farmer's Market Location">
+</div>
+
 
 <div class="section">
     <div class="highlight-text">Farmer's Market Schedules</div>
@@ -150,7 +206,7 @@
         </div>
         <div class="schedule-item">
             <h3>Wednesday:</h3>
-            <p><strong>Ocean Beach Farmers’ Market</strong><br>4900 Block of Newport Avenue<br>between Cable & Bacon Streets in Ocean Beach<br><em>4:00PM – 8:00PM</em></p>
+            <p><strong>Ocean Beach Farmers’ Market</strong><br>4900 Block of Newport Avenue<br>between Cable &amp; Bacon Streets in Ocean Beach<br><em>4:00PM – 8:00PM</em></p>
         </div>
         <div class="schedule-item">
             <h3>Thursday:</h3>
@@ -165,10 +221,51 @@
 
 <div class="separator"></div>
 
+<!-- ------------------ New Testimonial Slideshow Section ------------------ -->
+<div class="testimonial-section">
+    <div class="highlight-text">Customer Testimonials</div>
+    <div class="testimonials">
+        <div class="testimonial-slide">
+            <blockquote>
+                "Yum! Best adobo and Pork skewers around! They set up at Sony's farmers market every Thursday in Rancho Bernardo and it is a must to swing by. Living in north county where there's not a lot of good Filipino food, I'm relieved to have come across this delicious spot. They also serve Lumpia, pancit, and chicken skewers."
+            </blockquote>
+            <cite>Erica M.<br>San Diego, CA</cite>
+        </div>
+        <div class="testimonial-slide">
+            <blockquote>
+                "This place was really good. The adobo was a lot thicker than I'm used to but was delicious! I definitely want to come here and order a full dinner. We just had four pieces of adobo some lumpia and some banana dessert my husband loves. They were all super tasty. We will definitely be back."
+            </blockquote>
+            <cite>Lorna C.<br>San Diego, CA</cite>
+        </div>
+        <div class="testimonial-slide">
+            <blockquote>
+                "We just wanted dessert and I only tried their turon at the farmer's market in downtown. It was good- I think they even have jackfruit or something else in it! The other food items looked tasty, but we already had food at the other vendors. Seems popular and pricing isn't bad either."
+            </blockquote>
+            <cite>Dung N.<br>San Diego, CA</cite>
+        </div>
+    </div>
+</div>
+
 <div class="footer">
     <p>Follow us</p>
     <p>Chula Vista, CA | info@gabinascuisine.com | Tel: 619.500.4884</p>
 </div>
+
+<!-- ------------------ Simple Auto-Advance Script (8 seconds) ------------------ -->
+<script>
+    const slides = document.querySelectorAll('.testimonial-slide');
+    let currentSlide = 0;
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.style.display = (i === index) ? 'block' : 'none';
+        });
+    }
+    showSlide(currentSlide);
+    setInterval(() => {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }, 8000);
+</script>
 
 </body>
 </html>
